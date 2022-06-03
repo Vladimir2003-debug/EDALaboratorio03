@@ -20,13 +20,12 @@ public class StackArray<E> implements TDAStack<E> {
 
     //mira la parte superior de la pila sin sacarlo de la pila
 	public E peek() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.top.getData();
 	}
 
 	//elimina el objeto en la aparte superior de la pila y devuelve el objeto como el valor de la funcion 
 	public E pop() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
