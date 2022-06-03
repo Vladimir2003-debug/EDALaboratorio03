@@ -1,5 +1,7 @@
 package TDA;
 
+import java.util.EmptyStackException;
+
 public class StackArray<E> implements TDAStack<E> {
     private Node<E> top;
 
@@ -20,13 +22,18 @@ public class StackArray<E> implements TDAStack<E> {
 
     //mira la parte superior de la pila sin sacarlo de la pila
 	public E peek() {
+		if(this.top == null)
+			new EmptyStackException();
 		return this.top.getData();
 	}
 
 	//elimina el objeto en la aparte superior de la pila y devuelve el objeto como el valor de la funcion 
 	public E pop() {
-		
-		return null;
+		if(this.top == null)
+			new EmptyStackException();
+		E item = this.top.getData();
+		this.top = this.top.getNext();
+		return item;
 	}
 
 	//inserta un elemento a la parte superior de la pila
