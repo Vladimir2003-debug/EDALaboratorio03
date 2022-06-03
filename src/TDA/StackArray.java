@@ -38,8 +38,8 @@ public class StackArray<E> implements TDAStack<E> {
 
 	//inserta un elemento a la parte superior de la pila
 	public E push(E item) {
-		// TODO Auto-generated method stub
-		return null;
+		this.top = new Node<E>(item, this.top);
+		return item;
 	}
 
 	//devuelve la pocicion basada en 1 donde se encuentre el objeto en la pila
