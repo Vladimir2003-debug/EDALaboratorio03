@@ -41,5 +41,16 @@ public class StackArray<E> implements TDAStack<E> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	//toString method
+	
+	public String toString() {
+		String txt = "";
+		for(Node<E> tmp = this.top; tmp != null; tmp = tmp.getNext()) {
+			txt += tmp.getData();
+		}
+		
+		return txt;
+	}
 
 }
