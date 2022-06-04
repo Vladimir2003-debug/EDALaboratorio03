@@ -1,62 +1,35 @@
 package TDA;
 
-import java.util.EmptyStackException;
+public class StackLink<E> implements TDAStack<E> {
 
-public class StackArray<E> implements TDAStack<E> {
-    private Node<E> top;
-
-    //constructor emptyStack
-    public StackArray() {
-        this.top = null;
-    }
-
-    //constructor push top
-    public StackArray(E item) {
-        push(item);
-    }
-
-    //comprueba si la pila esta vacia
+	@Override
 	public boolean empty() {
-		return this.top == null;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-    //mira la parte superior de la pila sin sacarlo de la pila
+	@Override
 	public E peek() {
-		if(this.top == null)
-			new EmptyStackException();
-		return this.top.getData();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	//elimina el objeto en la aparte superior de la pila y devuelve el objeto como el valor de la funcion 
+	@Override
 	public E pop() {
-		if(this.top == null)
-			new EmptyStackException();
-		E item = this.top.getData();
-		this.top = this.top.getNext();
-		return item;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	//inserta un elemento a la parte superior de la pila
+	@Override
 	public E push(E item) {
-		this.top = new Node<E>(item, this.top);
-		return item;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	//devuelve la pocicion basada en 1 donde se encuentre el objeto en la pila
+	@Override
 	public int search(Object o) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-	
-	//toString method
-	
-	public String toString() {
-		String txt = "";
-		for(Node<E> tmp = this.top; tmp != null; tmp = tmp.getNext()) {
-			txt += tmp.getData();
-		}
-		
-		return txt;
 	}
 
 }
