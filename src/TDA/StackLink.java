@@ -2,32 +2,33 @@ package TDA;
 
 import java.util.EmptyStackException;
 
-public class StackArray<E> implements TDAStack<E> {
+public class StackLink<E> implements TDAStack<E> {
     private Node<E> top;
 
-    //constructor emptyStack
-    public StackArray() {
+    /**
+     * contructor que no tiene parametros
+     */
+    public StackLink() {
         this.top = null;
     }
-
-    //constructor push top
-    public StackArray(E item) {
+    /**
+     * constructor que recibe un valor que sera el top de la pila
+     * @param item el valor inical de la pila
+     */
+    public StackLink(E item) {
         push(item);
     }
 
-    //comprueba si la pila esta vacia
 	public boolean empty() {
 		return this.top == null;
 	}
 
-    //mira la parte superior de la pila sin sacarlo de la pila
 	public E peek() {
 		if(this.top == null)
 			new EmptyStackException();
 		return this.top.getData();
 	}
 	
-	//elimina el objeto en la aparte superior de la pila y devuelve el objeto como el valor de la funcion 
 	public E pop() {
 		if(this.top == null)
 			new EmptyStackException();
@@ -36,11 +37,6 @@ public class StackArray<E> implements TDAStack<E> {
 		return item;
 	}
 	
-	/**
-	 * inserta un elemento a la parte superior de la pila
-	 * @param item valor generico que se desea ingrear a la pila
-	 * @return el valor que se desea ingresar
-	 */
 	public E push(E item) {
 		if(this.top == null) {
 			this.top = new Node<E>(item);
@@ -50,14 +46,18 @@ public class StackArray<E> implements TDAStack<E> {
 		return item;
 	}
 
-	//devuelve la pocicion basada en 1 donde se encuentre el objeto en la pila
 	public int search(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = 1;
+		Node<E> tmp = this.top;
+		while(tmp != null) {
+			if(tmp.getData().equals(o))
+				return i;
+			tmp = tmp.getNext();
+			i++;
+		}
+		return -1;
 	}
-	
-	//toString method
-	
+		
 	public String toString() {
 		String txt = "";
 		for(Node<E> tmp = this.top; tmp != null; tmp = tmp.getNext()) {
