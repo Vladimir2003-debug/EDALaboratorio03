@@ -171,6 +171,7 @@ Las clases QueueArray y QueueLink se dearrollaron casi como las clases Stack con
 ## Solucion del cuestionario
 - ¿Qué similitudes hay entre una Lista Enlazada y una Pila?
 Las diferencias y similitudes se muestran en el siguiente cuadro:
+
 | Operacion              | LinkedList | STACK |
 |------------------------|------------|-------|
 | Access                 | O(k)       | O(k)  |
