@@ -10,18 +10,15 @@ public class Ejercicio1 {
          * h[0] es el fondo de la pila y
          * h[h.length] es el tope de la pila
          */
-    	int[] h1 = {1,1,1,2,3};
+    	int[] h1 = {1,1,1,2};
         int[] h2 = {2,3,4};
         int[] h3 = {1,4,1,1};
         
         System.out.println(print(h1));
         System.out.println(print(h2));
-        nivelar(h1,h2);
+        System.out.println(print(h3));
 
-        System.out.println(print(h1));
-        System.out.println(print(h2));
-        nivelar(h2,h3);
-        
+        equalStacks(h1,h2,h3);
         System.out.println(print(h1));
         System.out.println(print(h2));
         System.out.println(print(h3));
@@ -32,19 +29,38 @@ public class Ejercicio1 {
      * @param s1 arreglo 1
      * @param s2 arreglo 2
      */
-    public static void nivelar(int[] s1, int [] s2 ) {
+    public static int equalStacks(int[] s1, int [] s2 ,int [] s3) {
     	
-    	int size1,size2;
-    	while(true) {
-    		size1 = sumStackSize(s1);
-    		size2 = sumStackSize(s2);
-    		if(size1 == size2)
-    			break;
-    		else if(size1>size2)
-    			pop(s1);
-    		else
-    			pop(s2);
-    	}
+    	int size1 = 0;
+        int size2 = 1;
+        
+    	while(size1 != size2) {
+            
+    		if(sumStackSize(s1) > sumStackSize(s2)) {
+                size1 = equal(s1,s2);
+                size2 = equal(s2,s3);
+            }else {
+                size1 = equal(s3,s1);
+                size2 = equal(s1,s2);
+            }
+
+        }
+        return sumStackSize(s1);
+    }
+    public static int equal(int[] s1, int [] s2) {
+        int size1,size2;
+            while(true) {
+        		size1 = sumStackSize(s1);
+        		size2 = sumStackSize(s2);
+        		if(size1 == size2)
+        			break;
+        		else if(size1>size2)
+        			pop(s1);
+        		else
+        			pop(s2);
+                
+            }
+            return size2;       
     }
     
     /**
