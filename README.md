@@ -55,7 +55,6 @@
 </td>
 <td><td>NOTA:
 </td>
-<td colspan="1"></td>
 </<tr>
 
 <tr><td colspan="6">DOCENTES:
@@ -69,7 +68,9 @@
 
 ## Solucion y Resultados
 # Organizacion
+El IDE usado es Eclipse aunque tambien se uso un poco vs code mayormente fue eclipse.
 Las carpetas y archivos estan organizados de la siguiente manera
+
 ```
 ├─EDALABORATORIO03
 │   .classpath
@@ -102,9 +103,64 @@ Las carpetas y archivos estan organizados de la siguiente manera
    
 ```
 En donde, Ejercicios contendra desarrollado el ejercicio 1, y TDA los ejercicios 2 y 3.
-Para realizar el ejercicio 1 se tuvo que desarrollar primero las estructuras de datos (Ejercicio 1 y 2) para trabajar con estas mismas
 
 # Solucion Ejercicio 1
+El ejercicio 1 consta de simular que arreglos estandar son pilas para ello se establecen los siguienes metodos 
+- equalStacks() que compara los tamaños y elimina el tope de tres arreglos/stacks
+- equal() metodo que nivela dos arreglos/stacks
+- sumStackSize() este metodo recibe un arreglo y suma todos sus elementos
+- pop() metodo que simula la operacion pop  de los Stacks
+- print() metodo que imprime un arreglo estandar
+
+
+##### equal
+para resolver este metodose realizo lo siguiente:
+```java
+      //size
+        int size1,size2;
+        //bucle while que no terminara hasta que los stacks sean iguales
+            while(true) {
+               //los sizes adquieren los tamaños de los arreglos
+        		size1 = sumStackSize(s1);
+        		size2 = sumStackSize(s2);
+                //compara si hay igualdad de tamaños el bucle se rompe
+        		if(size1 == size2)
+        			break;
+        		else if(size1>size2) // compara su el stack 1 es mas grande, en ese caso se hace pop 
+        			pop(s1);
+        		else                // si el stack 1 es < a stack 2 el que hace pop es stack 2
+        			pop(s2);
+                
+            }
+            return size2;           //retorna el tamaño igualado puede ser de stack 1 o el 2
+```
+
+
+##### equalStacks
+
+Entonces usando el metodo equal podemos hacer una comparacion de tres arreglos/stacks
+
+```java
+        //tamaños diferentes para que entren en el bucle
+    	int size1 = 0;
+        int size2 = 1;
+        
+        //bucle que no terminara hasta que los tres esten nivelados en tamaño
+    	while(size1 != size2) {
+    		if(sumStackSize(s1) > sumStackSize(s2)) {// este if compara los tamaños de los arreglos y dependiendo                         
+                size1 = equal(s1,s2);                // de su valor o bien se compara el stack1 con el stack2;stack2 y stack3
+                size2 = equal(s2,s3);                   
+            }else {
+                size1 = equal(s3,s1);                // o el stack3 con el stack1; y el stack1 con el stack 2
+                size2 = equal(s1,s2);
+            }
+```
+
+##### pop
+A diferencia de los metodos pop usados en los Stack este metodo pop iguala a 0, para que asi al sumar este valor no tenga relevancia
+
+##### print
+El metodo de impresion de arreglos para comprobar si los metodos funcionan correctamente
 
 # Soluciones Ejercicio 2 y 3
 Para realizar las estructuras de datos se tomo en cuenta la codumentacion en oracle, y la velocidad ideal propuesta en https://www.bigocheatsheet.com/ que indica lo siguiente:
@@ -171,6 +227,7 @@ Las clases QueueArray y QueueLink se dearrollaron casi como las clases Stack con
 ## Solucion del cuestionario
 - ¿Qué similitudes hay entre una Lista Enlazada y una Pila?
 Las diferencias y similitudes se muestran en el siguiente cuadro:
+
 | Operacion              | LinkedList | STACK |
 |------------------------|------------|-------|
 | Access                 | O(k)       | O(k)  |
