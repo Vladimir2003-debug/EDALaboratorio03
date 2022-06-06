@@ -67,7 +67,7 @@
 </table>
 
 ## Solucion y Resultados
-# Organizacion
+### Organizacion
 El IDE usado es Eclipse aunque tambien se uso un poco vs code mayormente fue eclipse.
 Las carpetas y archivos estan organizados de la siguiente manera
 
@@ -104,7 +104,7 @@ Las carpetas y archivos estan organizados de la siguiente manera
 ```
 En donde, Ejercicios contendra desarrollado el ejercicio 1, y TDA los ejercicios 2 y 3.
 
-# Solucion Ejercicio 1
+### Solucion Ejercicio 1
 El ejercicio 1 consta de simular que arreglos estandar son pilas para ello se establecen los siguienes metodos 
 - equalStacks() que compara los tamaños y elimina el tope de tres arreglos/stacks
 - equal() metodo que nivela dos arreglos/stacks
@@ -113,7 +113,7 @@ El ejercicio 1 consta de simular que arreglos estandar son pilas para ello se es
 - print() metodo que imprime un arreglo estandar
 
 
-##### equal
+#### equal
 para resolver este metodose realizo lo siguiente:
 ```java
       //size
@@ -136,7 +136,7 @@ para resolver este metodose realizo lo siguiente:
 ```
 
 
-##### equalStacks
+#### equalStacks
 
 Entonces usando el metodo equal podemos hacer una comparacion de tres arreglos/stacks
 
@@ -156,13 +156,13 @@ Entonces usando el metodo equal podemos hacer una comparacion de tres arreglos/s
             }
 ```
 
-##### pop
+#### pop
 A diferencia de los metodos pop usados en los Stack este metodo pop iguala a 0, para que asi al sumar este valor no tenga relevancia
 
-##### print
+#### print
 El metodo de impresion de arreglos para comprobar si los metodos funcionan correctamente
 
-# Soluciones Ejercicio 2 y 3
+## Soluciones Ejercicio 2 y 3
 Para realizar las estructuras de datos se tomo en cuenta la codumentacion en oracle, y la velocidad ideal propuesta en https://www.bigocheatsheet.com/ que indica lo siguiente:
 
 
@@ -179,7 +179,7 @@ Para realizar las estructuras de datos se tomo en cuenta la codumentacion en ora
 | Deletion  | O(n)  | O(1)  | O(1)  |
 | Peor Caso | O(n)  | O(n)  | O(n)  |
 
-# Ejercicio 2 - STACKS
+### Ejercicio 2 - STACKS
 Se desarrollaron las siguientes clases:
 - TDAStack - interfaz 
 - StackArray - Stack a base de arreglos estandar
@@ -205,7 +205,26 @@ Esta clase posee similitudes con LinkedList. Por lo que sus unicos atributos son
 - top(Nodo que contiene un dato generico) este nodo es el Nodo root de LinkedList
 Al igual que con StackList los metodos son realizados de acuerdo al cuadro y la interfaz.
 
-# Ejercicio 3 - Queue
+Para probar estas clases se creo una clase TestStack donde se prueba los metodos principales de los stack tanto los array como enlazados
+las respuestas deberian ser:
+
+```java
+        StackArray<Integer> stackArray = new StackArray<Integer>();
+		StackLink<Integer> stackLink = new StackLink<Integer>();
+		System.out.println("STACKARRAY");
+		stackArray.empty(); //retorna true ya que la pila esta vacia
+		stackArray.push(12);
+		stackArray.push(11);
+		stackArray.push(43);
+		System.out.println(stackArray);   // 43 11 12  el stack donde 43 es el top
+		System.out.println(stackArray.peek()); // 43vistazo al top
+		System.out.println(stackArray.pop()); // 43 eliminacion del top
+		System.out.println(stackArray.search(11)); //1  cuando se busca 11
+//Al aplicar los mismos metodos a StackArray se deberia de obtener los mismos resultados
+
+```
+
+### Ejercicio 3 - Queue
 Se crearon las siguientes clases:
 - TDAQueue
 - QueueArray
@@ -213,6 +232,7 @@ Se crearon las siguientes clases:
 
 TDAQueue
 Metodos:
+
 - add()
 - element()
 - offer()
@@ -223,6 +243,25 @@ Metodos:
 Las clases QueueArray y QueueLink se dearrollaron casi como las clases Stack con algunas diferencias:
 - Los metodos offer y add son lo mismo con la diferencia de que add lleva un IllegalStateException por lo que add primero comprueba esta excepcion y luego llama a offer, al igual que element() y peek() donde element lleva el NoSuchElementException().
 
+Al igual que con stack Se ha implementado una clase TestQueue donde se prueban los metodos principales de queue
+
+```java
+
+		//QUEUES TEST
+		QueueLink<Integer> queueLink = new QueueLink<Integer>();
+		QueueArray<Integer> queueArray = new QueueArray<Integer>();
+		System.out.println("QUEUELINK");
+		queueLink.add(12);
+		queueLink.add(2);
+		queueLink.add(14);
+		System.out.println(queueLink); //12 2 14  la cola de elementos
+		System.out.println(queueLink.peek()); // 12 la cabeza de la cola
+		System.out.println(queueLink.element());// 12 la cabeza de la cola
+		System.out.println(queueLink.poll()); // 12 Elimina la cabeza de la cola
+		System.out.println(queueLink); // 2 14 asi queda la cola despues de eliminar la cabeza
+//Al igual que TestStack lo mismo deberia funcionar para QueueArray        
+   
+```
 
 ## Solucion del cuestionario
 - ¿Qué similitudes hay entre una Lista Enlazada y una Pila?
@@ -262,7 +301,11 @@ Si comparamos LinkedList con StackLink, StackLink
     - Pattern Machine
 ## Conclusiones
 
-
+Las pilas y colas son diferentes modos de organizacion de datos que dependiendo de su uso pueden ser realmente eficientes
+una pila por ejemplo no permite el accedo al fondo sin antes sacar todos los elementos de la pila. o las colas donde si bien hay
+un acceso directo a la cabeza es en la cola donde se añade elementos y asi flujen los datos A pesar de que pareciera
+que son simples listas enlazadas y/o arreglos estandar este modo de restriccion a elementos nos permite protegerlos si es que no se desea
+un acceso no deseado a ciertos objetos.
 
 ## Retroalimentacion
 
