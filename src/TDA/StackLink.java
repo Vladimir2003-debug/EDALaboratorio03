@@ -13,11 +13,19 @@ public class StackLink<E> implements TDAStack<E> {
     }
     /**
      * constructor que recibe un valor que sera el top de la pila
-     * @param item el valor inical de la pila
+     @param item el valor inical de la pila
      */
     public StackLink(E item) {
         push(item);
     }
+
+	/**
+	 * metodo que retorna el Nodo del top de la pila
+	 * @return el valor del top de la pila
+	 */
+	public Node<E> getTop() {
+		return this.top;
+	}
 
 	public boolean empty() {
 		return this.top == null;
@@ -25,13 +33,13 @@ public class StackLink<E> implements TDAStack<E> {
 
 	public E peek() {
 		if(this.top == null)
-			new EmptyStackException();
+			throw new EmptyStackException();
 		return this.top.getData();
 	}
 	
 	public E pop() {
 		if(this.top == null)
-			new EmptyStackException();
+			throw new EmptyStackException();
 		E item = this.top.getData();
 		this.top = this.top.getNext();
 		return item;
