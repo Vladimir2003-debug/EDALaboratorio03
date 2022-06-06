@@ -2,6 +2,7 @@ package TDA;
 
 import java.util.NoSuchElementException;
 
+
 public class QueueLink<E> implements TDAQueue<E>{
 	private Node<E> head;
 	private Node<E> tail;
@@ -14,9 +15,8 @@ public class QueueLink<E> implements TDAQueue<E>{
 		this.head = null;
 		this.tail = null;
 	}
-	public QueueLink(Node<E> head) {
-		this.head = head;
-		this.tail = head;
+	public QueueLink(E head) {
+		offer(head);
 	}
 
 	public boolean add(E e) {
@@ -25,17 +25,22 @@ public class QueueLink<E> implements TDAQueue<E>{
 
 	public E element() {
 		if(head == null)
-			new NoSuchElementException();
+			throw new NoSuchElementException();
 		return head.getData();
 	}
 
 
 	public boolean offer(E e) {
 		if(e == null)
-			new NullPointerException();
-
-		this.tail = new Node<E>(tail.getData(), new Node<E>(e));
-	 	return true;
+			throw new NullPointerException();
+		if(this.head == null) {
+			this.head = new Node<E>(e);
+			this.tail = this.head;
+			return true;
+		}
+		this.tail.setNext(new Node<E>(e));
+	 	this.tail = this.tail.getNext();
+		return true;
 	}
 
 	public E peek() {
@@ -52,7 +57,7 @@ public class QueueLink<E> implements TDAQueue<E>{
 
 	public E remove() {
 		if(head == null)
-			new NoSuchElementException();
+			throw new NoSuchElementException();
 		return poll();
 	}
 
@@ -63,10 +68,10 @@ public class QueueLink<E> implements TDAQueue<E>{
 
 	public String toString() {
 		String txt = "";
-		for(Node<E> tmp = this.head; tmp != null; tmp = tmp.getNext()) {
+		for(Node<E> tmp = this.head; tmp != null; tmp = tmp.getNext())
 			txt += tmp.getData() + " ";
-		}
+		
 		return txt;
 	}
-
+	
 }
