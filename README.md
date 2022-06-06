@@ -53,7 +53,7 @@
 <li>Vladimir Arturo Sulla Quispe - vsullaq@unsa.edu.pe</li>
 </ul>
 </td>
-<td><td>NOTA:
+<td>NOTA:</td><td>
 </td>
 </<tr>
 
