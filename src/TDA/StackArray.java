@@ -19,27 +19,36 @@ public class StackArray<E> implements TDAStack<E> {
 		push(element);
 	}
 	
+	/**
+	 * Este metodo retorna el nodo Top del Stack
+	 * @return el Nodo top del Stack
+	 */
+	public E getTop() {
+		return this.top;
+	}
+	
 	public boolean empty() {
 		return this.top == null;
 	}
 
 	public E peek() {
 		if(this.top == null)
-			new EmptyStackException();
+			throw new EmptyStackException();
 		return this.top;
 	}
 
 	public E pop() {
 		if(this.top == null)
-			new EmptyStackException();
+			throw new EmptyStackException();
 		E item = this.top;
 		return item;
 	}
 
 	public E push(E item) {
 		if(this.top == null) {
-			this.top = item;
+			
 			elements[0] = item;
+			this.top = elements[0];
 			return item;
 		}
 		
@@ -51,13 +60,13 @@ public class StackArray<E> implements TDAStack<E> {
 			rezize();
 		}
 		elements[i+1] = item;
-		this.top = elements[i];
+		this.top = elements[i+1];
 		return item;
 	}
 	
 	/**
 	 * Metodo que copia los elementos de un arreglo
-	 * a otro de tamaño doble
+	 * a otro de tamaï¿½o doble
 	 */
 	public void rezize() {
 		int length = elements.length;
@@ -80,7 +89,7 @@ public class StackArray<E> implements TDAStack<E> {
 	
 	public String toString() {
 		String txt = "";
-		for (int i = 0; i < elements.length; i++) {
+		for (int i = elements.length - 1; i >= 0; i--) {
 			if(elements[i] == null) continue;
 			txt += elements[i] + " "; 
 		}
