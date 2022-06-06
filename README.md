@@ -55,7 +55,6 @@
 </td>
 <td><td>NOTA:
 </td>
-<td colspan="1"></td>
 </<tr>
 
 <tr><td colspan="6">DOCENTES:
@@ -86,7 +85,9 @@ Las carpetas y archivos estan organizados de la siguiente manera
 │           StackLink.class
 │           TDAQueue.class
 │           TDAStack.class
-│           Test.class
+│           TestStack.class
+|           TestQueue.class
+|           
 │           
 ├───imagenes
 └───src
@@ -98,13 +99,21 @@ Las carpetas y archivos estan organizados de la siguiente manera
             StackLink.java
             TDAQueue.java
             TDAStack.java
-            Test.java
+            TestStack.java
+            TestQueue.java
    
 ```
-En donde, Ejercicios contendra desarrollado el ejercicio 1, y TDA los ejercicios 2 y 3.
+En donde, Ejercicios contendra desarrollado el ejercicio 1, y TDA los ejercicios 2(Stacks) y 3(Queues). El IDE donde se realizo estos ejercicios es Eclipse 
 Para realizar el ejercicio 1 se tuvo que desarrollar primero las estructuras de datos (Ejercicio 1 y 2) para trabajar con estas mismas
 
 # Solucion Ejercicio 1
+El ejercicio 1 se realizo en una Clase main donde se crearon tres arreglos que serviran para evaluar los metodos los cuales son:
+- nivelar() metodo que nivela los tamaños de dos pilas
+- sumStackSize() Metodo que suma todos los elementos de una pila y devuelve el tamaño
+- pop() Simula el efecto de sacar el elemento top de una pila en un arreglo estandar
+- print() Imprime el arreglo 
+Lo que hacemos entonces es usar nivelar las dos primeras pilas y despues nivelarla conun tercero
+
 
 # Soluciones Ejercicio 2 y 3
 Para realizar las estructuras de datos se tomo en cuenta la codumentacion en oracle, y la velocidad ideal propuesta en https://www.bigocheatsheet.com/ que indica lo siguiente:
